@@ -21,6 +21,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <a href="/contact" class="btn btn-ghost">Get in Touch</a>
         </div>
       </div>
+      <div class="hero-right">
+      <div class="hero-photo">
+        <img src="/headshot.jpg" alt="Nina Chatman" />
+      </div>
       <div class="hero-badge-stack">
         <div class="badge-card badge-card--teal">
           <span class="badge-icon">⚕️</span>
@@ -43,6 +47,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <div class="badge-sub">Sergeant · 7 Years</div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -229,6 +234,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   .btn-ghost { border: 2px solid var(--border); color: var(--text); background: var(--surface); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
+  .hero-right { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+  .hero-photo img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 32px rgba(13, 148, 136, 0.2);
+    display: block;
+  }
   .hero-badge-stack { display: flex; flex-direction: column; gap: 0.75rem; }
   .badge-card {
     background: var(--surface);
@@ -328,8 +344,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   @media (max-width: 700px) {
     .hero-inner { grid-template-columns: 1fr; }
-    .hero-badge-stack { flex-direction: row; flex-wrap: wrap; }
-    .badge-card { min-width: 0; flex: 1 1 150px; }
+    .hero-right { display: none; }
     .spotlight-card { grid-template-columns: 1fr; }
   }
 </style>
