@@ -141,28 +141,36 @@ const roles = [
     </div>
 
     <section class="section-block">
-      <h2 class="section-title">Clinical Rotations (IPPEs & APPEs)</h2>
+      <h2 class="section-title">Advanced Pharmacy Practice Experiences (APPEs)</h2>
       <div class="rotation-grid">
         {[
-          {
-            type: "IPPE — Community Pharmacy",
-            site: "Publix Pharmacy #1595 – Westpark",
-            preceptor: "Dr. Raj Patel, PharmD",
-            period: "Apr 29 – May 24, 2024",
-          },
-          {
-            type: "IPPE — Hospital Pharmacy",
-            site: "VCU Health System",
-            preceptor: "Dr. Angelia Walker, PharmD",
-            period: "Jun 2 – Jun 20, 2025",
-          },
-          {
-            type: "APPE — Patient Care",
-            site: "Richmond Health and Wellness Program",
-            preceptor: "Kathie Falls, NP · Natalie Mansion, MS · Krista Donohue, PharmD",
-            period: "Jul 9 – Jul 31, 2025",
-            note: "Church Hill House · Dominion Place · VCU Health Hub",
-          },
+          { type: "APPE — Stem Cell Transplant", site: "VCU Health System", preceptor: "Rebekah Dyer, PharmD, BCPS", period: "Mar 2027 – Apr 2027" },
+          { type: "APPE — Healthcare Management & Consulting", site: "Central Virginia VA Medical Center", preceptor: "Samantha Schaller, PharmD", period: "Feb 2027 – Mar 2027" },
+          { type: "APPE — Acute Care: Oncology (Hem/Onc & BMT)", site: "Central Virginia VA Medical Center", preceptor: "Jinah Han, PharmD", period: "Jan 2027 – Feb 2027" },
+          { type: "APPE — Acute Care: Solid Organ Transplant", site: "VCU Health System", preceptor: "Ryan Marks, PharmD", period: "Nov 2026 – Dec 2026" },
+          { type: "APPE — Advanced Hospital Pharmacy", site: "Encompass Health Rehabilitation Hospital of Petersburg", preceptor: "Dickson Adofo, PharmD", period: "Oct 2026 – Nov 2026" },
+          { type: "APPE — Ambulatory Care: Oncology (Hem/Onc & BMT)", site: "Bon Secours Cancer Institute at St. Francis", preceptor: "Anna Murillo, PharmD, BCOP, BCPS", period: "Aug 2026 – Oct 2026" },
+          { type: "APPE — Pharmaceutical Industry", site: "Johnson & Johnson", preceptor: "Xavier Hudson, PharmD", period: "Jun 2026 – Jul 2026" },
+          { type: "APPE — Advanced Community Pharmacy", site: "Richmond Apothecaries / Bremo Pharmacy", preceptor: "Tana Kaefer, PharmD", period: "May 2026 – Jun 2026" },
+        ].map(({ type, site, preceptor, period, note }) => (
+          <div class="rotation-card">
+            <span class="rotation-type">{type}</span>
+            <h3>{site}</h3>
+            {note && <p class="rotation-note">{note}</p>}
+            <p class="rotation-preceptor">Preceptor: {preceptor}</p>
+            <p class="rotation-period">{period}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Introductory Pharmacy Practice Experiences (IPPEs)</h2>
+      <div class="rotation-grid">
+        {[
+          { type: "IPPE — Community Pharmacy", site: "Publix Pharmacy #1595 – Westpark", preceptor: "Raj Patel, PharmD", period: "Apr – May 2024" },
+          { type: "IPPE — Hospital Pharmacy", site: "VCU Health System", preceptor: "Angelia Walker, PharmD", period: "Jun 2025" },
+          { type: "IPPE — Patient Care", site: "Richmond Health and Wellness Program", preceptor: "Kathie Falls, NP · Natalie Mansion, MS · Krista Donohue, PharmD", period: "Jul 2025", note: "Church Hill House · Dominion Place · VCU Health Hub" },
         ].map(({ type, site, preceptor, period, note }) => (
           <div class="rotation-card">
             <span class="rotation-type">{type}</span>
@@ -214,8 +222,12 @@ const roles = [
       <h2 class="section-title">Licenses & Certifications</h2>
       <div class="cert-grid">
         {[
-          { name: "Pharmacy Technician License", issuer: "Virginia Board of Pharmacy", date: "" },
-          { name: "ASCP Certified Medical Technologist (MT)", issuer: "American Society for Clinical Pathology", date: "" },
+          { name: "Pharmacy Intern License (#0203021387)", issuer: "Virginia Department of Health Professions", date: "Oct 2023 – Dec 2027" },
+          { name: "Technologist in Hematology, ASCP-H (#4012)", issuer: "ASCP Board of Certification", date: "Aug 2021 – Aug 2027" },
+          { name: "Technologist in Chemistry, ASCP-C (#5960)", issuer: "ASCP Board of Certification", date: "Aug 2023 – Aug 2026" },
+          { name: "Pharmacy-Based Immunization Delivery", issuer: "American Pharmacists Association (APhA)", date: "Sep 2024" },
+          { name: "Pharmacy-Based Test and Treat", issuer: "APhA & University of Florida College of Pharmacy", date: "Oct 2024 – Oct 2027" },
+          { name: "Basic Life Support Provider, CPR & AED (#265416024587)", issuer: "American Heart Association", date: "Sep 2025 – Sep 2027" },
         ].map(({ name, issuer, date }) => (
           <div class="cert-card">
             <h3>{name}</h3>
@@ -246,8 +258,26 @@ const roles = [
             period: "2025 – Present",
             details: [
               "Received Veloxis Organ Donation Challenge Project Grant ($125, Dec 2025)",
+              "Won Best Overall Project Award — AST Transplant Pharmacy Community of Practice (Jun 2026)",
               "Organized interprofessional panel featuring transplant surgeon, living donor, UNOS specialist, and transplant pharmacist",
               "Developed pre/post assessments to measure learning outcomes and educational effectiveness",
+            ],
+          },
+          {
+            role: "Scholarship Chair",
+            org: "Kappa Epsilon, Tau Chapter",
+            period: "2025 – 2026",
+            details: [
+              "Oversaw scholastic obligations of active chapter members",
+              "Coordinated tutoring sessions and study groups to support academic success",
+            ],
+          },
+          {
+            role: "Gayheart Leadership Development Program (GLDP)",
+            org: "VCU School of Pharmacy",
+            period: "Oct 2025 – Apr 2026",
+            details: [
+              "Selected for VCU SOP's competitive leadership development program focused on professional growth and pharmacy leadership",
             ],
           },
         ].map(({ role, org, period, details }) => (
@@ -263,6 +293,58 @@ const roles = [
               {details.map((d) => <li>{d}</li>)}
             </ul>
           </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Honors & Awards</h2>
+      <div class="award-highlight">
+        <div class="award-highlight-card">
+          <span class="award-icon">🏆</span>
+          <div>
+            <h3>Best Overall Project Award — Organ Donation Challenge</h3>
+            <p>AST Transplant Pharmacy Community of Practice · June 2026</p>
+          </div>
+        </div>
+        <div class="award-highlight-card">
+          <span class="award-icon">💰</span>
+          <div>
+            <h3>Veloxis Organ Donation Challenge Project Grant</h3>
+            <p>Pharmacy Student Champion · $125 · December 2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Community Service</h2>
+      <div class="course-list">
+        {[
+          { course: "Resilient Smile Project Service Day — AAPP Student Chapter", period: "Feb 2025" },
+          { course: "Remote Area Medical: Interprofessional Outreach — Luray, VA", period: "Sep 2024" },
+          { course: "Pharmacy Explorers — VCU School of Pharmacy", period: "Jun 2024" },
+          { course: "Teach Blood Pressure — Patrick Copeland Elementary School", period: "Fall 2023" },
+        ].map(({ course, period }) => (
+          <div class="course-item">
+            <span class="course-name">{course}</span>
+            <span class="course-period">{period}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Professional Organizations</h2>
+      <div class="org-grid">
+        {[
+          "American Society of Health-System Pharmacists (ASHP)",
+          "Virginia Society of Health-System Pharmacists (VSHP) — Student Chapter",
+          "American Association of Psychiatric Pharmacists (AAPP) — Student Chapter",
+          "Student National Pharmaceutical Association (SNPhA)",
+          "Kappa Epsilon, Tau Chapter",
+        ].map((org) => (
+          <div class="org-pill">{org}</div>
         ))}
       </div>
     </section>
@@ -386,6 +468,33 @@ const roles = [
   .rotation-note { color: var(--muted); font-size: 0.78rem; margin-bottom: 0.3rem; }
   .rotation-preceptor { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.15rem; }
   .rotation-period { color: var(--accent); font-size: 0.78rem; font-weight: 600; }
+
+  .award-highlight { display: flex; flex-direction: column; gap: 0.75rem; }
+  .award-highlight-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    transition: border-color 0.2s;
+  }
+  .award-highlight-card:hover { border-color: var(--accent); }
+  .award-icon { font-size: 1.6rem; }
+  .award-highlight-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+  .award-highlight-card p { font-size: 0.8rem; color: var(--muted); }
+
+  .org-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .org-pill {
+    background: var(--accent-dim);
+    border: 1.5px solid var(--accent);
+    border-radius: 99px;
+    padding: 0.45rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
 
   .course-list { display: flex; flex-direction: column; gap: 0.6rem; }
   .course-item {
