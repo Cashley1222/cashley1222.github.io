@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Contact" description="Get in touch with Nina Chatman">
+  <div class="container">
+    <header class="page-header">
+      <h1>Get in Touch</h1>
+      <p>Open to residency opportunities, clinical collaborations, and pharmacy conversations.</p>
+    </header>
+
+    <div class="contact-grid">
+      <div class="links">
+        <h2>Find me online</h2>
+        <ul>
+          {[
+            { label: "Email", value: "Cashley1222@gmail.com", href: "mailto:Cashley1222@gmail.com" },
+            { label: "VCU Email", value: "Chatmanca@vcu.edu", href: "mailto:Chatmanca@vcu.edu" },
+            { label: "LinkedIn", value: "linkedin.com/in/catrina-chatman-278178124", href: "https://www.linkedin.com/in/catrina-chatman-278178124" },
+            { label: "Location", value: "Disputanta, Virginia 23842", href: "#" },
+            { label: "Phone", value: "(254) 383-9579", href: "tel:+12543839579" },
+          ].map(({ label, value, href }) => (
+            <li>
+              <a href={href} class="contact-link">
+                <span class="link-label">{label}</span>
+                <span class="link-value">{value} →</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <div class="info-badges">
+          <div class="info-badge">
+            <span class="badge-label">PharmD Candidate · Class of 2027</span>
+          </div>
+          <div class="info-badge info-badge--purple">
+            <span class="badge-label">ASCP Certified Medical Technologist</span>
+          </div>
+        </div>
+      </div>
+
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/xeebzwra"
+        method="POST"
+        id="contact-form"
+      >
+        <h2>Send a message</h2>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Dr. Jane Smith" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="jane@hospital.org" required />
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+        </div>
+        <button type="submit" class="btn-send">Send Message</button>
+        <p class="success-msg" id="success-msg">Message sent! Nina will get back to you soon.</p>
+      </form>
+
+      <script>
+        const form = document.getElementById('contact-form');
+        const msg = document.getElementById('success-msg');
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { Accept: 'application/json' },
+          });
+          if (res.ok) {
+            form.reset();
+            msg.style.display = 'block';
+          }
+        });
+      </script>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container { padding-top: 3rem; padding-bottom: 4rem; }
+
+  .page-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+  }
+  .page-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .page-header p { color: var(--muted); }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+
+  h2 { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 1.25rem; }
+
+  .links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .contact-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1rem;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); }
+  .link-label { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+  .link-value { color: var(--muted); font-size: 0.78rem; }
+
+  .info-badges { display: flex; flex-direction: column; gap: 0.5rem; }
+  .info-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent-dim);
+    border: 1.5px solid var(--accent);
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+  }
+  .info-badge--purple {
+    background: var(--accent2-dim);
+    border-color: var(--accent2);
+  }
+  .info-badge--purple .badge-label { color: var(--accent2); }
+  .badge-label { color: var(--accent); font-size: 0.8rem; font-weight: 700; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+  .field { display: flex; flex-direction: column; gap: 0.4rem; }
+  label { font-size: 0.8rem; font-weight: 600; color: var(--muted); }
+
+  input, textarea {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.9rem;
+    resize: vertical;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--accent); }
+  input::placeholder, textarea::placeholder { color: var(--muted); }
+
+  .btn-send {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 99px;
+    padding: 0.75rem 1.6rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: all 0.2s;
+  }
+  .btn-send:hover { opacity: 0.88; transform: translateY(-1px); }
+
+  .success-msg {
+    display: none;
+    color: var(--accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+</style>

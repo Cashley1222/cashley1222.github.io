@@ -1,0 +1,335 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Home"
+  description="Nina Chatman — PharmD Candidate at VCU, ASCP Certified Medical Technologist, Army Veteran"
+>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow-pill">PharmD Candidate · Class of 2027</span>
+        <h1>Nina Chatman</h1>
+        <p class="subtitle">
+          Doctor of Pharmacy candidate at VCU School of Pharmacy. ASCP Certified Medical Technologist.
+          Army Veteran. Passionate about clinical pharmacy, organ donation advocacy, and bridging
+          science with compassionate patient care.
+        </p>
+        <div class="cta-group">
+          <a href="/CatrinaPortfolio/experience" class="btn btn-primary">View Experience</a>
+          <a href="/CatrinaPortfolio/contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-badge-stack">
+        <div class="badge-card badge-card--teal">
+          <span class="badge-icon">⚕️</span>
+          <div>
+            <div class="badge-text">PharmD Candidate</div>
+            <div class="badge-sub">VCU · Class of 2027</div>
+          </div>
+        </div>
+        <div class="badge-card badge-card--purple">
+          <span class="badge-icon">🔬</span>
+          <div>
+            <div class="badge-text">ASCP Certified</div>
+            <div class="badge-sub">Medical Technologist</div>
+          </div>
+        </div>
+        <div class="badge-card badge-card--gold">
+          <span class="badge-icon">🎖️</span>
+          <div>
+            <div class="badge-text">Army Veteran</div>
+            <div class="badge-sub">Sergeant · 7 Years</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <p class="about-text">
+        I'm a motivated PharmD candidate at Virginia Commonwealth University with a rare combination
+        of clinical laboratory expertise, military discipline, and deep community commitment. Before
+        pharmacy school I spent 3+ years as an ASCP Certified Medical Technologist specializing in
+        Hematology and Chemistry — a foundation that shapes how I think about drug therapy and
+        patient safety every day.
+      </p>
+      <p class="about-text">
+        My clinical interests center on organ transplantation, oncology, and neuroscience critical care.
+        Outside the classroom and hospital, I champion organ donation awareness through the
+        SNPhA-driven <em>Be the Legacy</em> initiative at VCU, working to register new donors and
+        educate future healthcare providers on life-saving transplantation options.
+      </p>
+    </div>
+  </section>
+
+  <section class="skills">
+    <div class="container">
+      <h2 class="section-title">Core Competencies</h2>
+      <div class="skill-grid">
+        {[
+          {
+            label: "Clinical Pharmacy",
+            items: ["Medication Order Processing", "Compounding", "Unit-Dose Distribution", "Controlled Substance Reconciliation"],
+          },
+          {
+            label: "Laboratory Science",
+            items: ["Hematology & Chemistry", "High-Complexity Testing", "Quality Control", "Specimen Management"],
+          },
+          {
+            label: "Patient Care",
+            items: ["Hospital & Community Pharmacy", "Patient Counseling", "Care Coordination", "Interprofessional Collaboration"],
+          },
+          {
+            label: "Leadership",
+            items: ["Military Leadership", "Student Ambassadorship", "Organ Donation Advocacy", "Team Management"],
+          },
+        ].map(({ label, items }) => (
+          <div class="skill-card">
+            <h3>{label}</h3>
+            <ul>
+              {items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="featured">
+    <div class="container">
+      <h2 class="section-title">Highlights</h2>
+      <div class="highlight-grid">
+        {[
+          {
+            stat: "3+",
+            label: "Years Clinical Lab Experience",
+            desc: "ASCP Certified Medical Technologist performing high-complexity testing in Hematology and Chemistry.",
+          },
+          {
+            stat: "7",
+            label: "Years Military Service",
+            desc: "U.S. Army Sergeant accountable for $5M+ in equipment, leading teams with the highest standards.",
+          },
+          {
+            stat: "73",
+            label: "New Donors Goal",
+            desc: "Leading VCU's Be the Legacy organ donation initiative to register 73 new donors and close the waitlist gap.",
+          },
+          {
+            stat: "$125",
+            label: "Veloxis Grant Awarded",
+            desc: "Pharmacy Student Champion recipient of the Veloxis Organ Donation Challenge Project Grant (Dec 2025).",
+          },
+        ].map(({ stat, label, desc }) => (
+          <div class="highlight-card">
+            <span class="stat">{stat}</span>
+            <h3>{label}</h3>
+            <p>{desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="center">
+        <a href="/CatrinaPortfolio/experience" class="btn btn-ghost">Full Experience →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="spotlight">
+    <div class="container">
+      <div class="spotlight-card">
+        <div class="spotlight-text">
+          <span class="tag tag-purple">Featured Initiative</span>
+          <h3>Be the Legacy: Organ Donation Awareness Panel</h3>
+          <p>
+            An interprofessional educational event at VCU designed to empower future healthcare
+            professionals with accurate information, dispel misconceptions, and inspire organ donation
+            advocacy. The panel featured a transplant surgeon, living donor, UNOS specialist, and a
+            transplant pharmacist. Pre- and post-event assessments measured learning outcomes.
+          </p>
+        </div>
+        <div class="spotlight-meta">
+          <div class="meta-item">
+            <span class="meta-label">Organizer</span>
+            <span>SNPhA · VCU SOP</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Collaborator</span>
+            <span>Fadel Dadabaev, PharmD (AST)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Funding</span>
+            <span>Veloxis Organ Donation Challenge Grant</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Goal</span>
+            <span>73 new organ donors registered</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 5rem 0 4rem; }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .eyebrow-pill {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 99px;
+    padding: 0.3rem 1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text) 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 580px;
+    margin-bottom: 2rem;
+    line-height: 1.75;
+  }
+
+  .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-ghost { border: 2px solid var(--border); color: var(--text); background: var(--surface); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-badge-stack { display: flex; flex-direction: column; gap: 0.75rem; }
+  .badge-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 0.9rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    min-width: 220px;
+    box-shadow: 0 2px 8px rgba(13,148,136,0.07);
+    transition: transform 0.2s;
+  }
+  .badge-card:hover { transform: translateX(4px); }
+  .badge-card--purple { border-color: #ddd6fe; box-shadow: 0 2px 8px rgba(124,58,237,0.07); }
+  .badge-card--gold { border-color: #fde68a; box-shadow: 0 2px 8px rgba(234,179,8,0.07); }
+  .badge-icon { font-size: 1.5rem; }
+  .badge-text { font-size: 0.875rem; font-weight: 700; color: var(--text); }
+  .badge-sub { font-size: 0.75rem; color: var(--muted); }
+
+  .about, .skills, .featured, .spotlight {
+    padding: 4rem 0;
+    border-top: 1px solid var(--border);
+  }
+  .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--text); }
+  .about-text {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 720px;
+    margin-bottom: 1rem;
+  }
+  .about-text em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 1rem;
+  }
+  .skill-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .skill-card:hover { border-color: var(--accent); }
+  .skill-card h3 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .skill-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+  .skill-card li { font-size: 0.875rem; color: var(--text); }
+
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .highlight-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+  }
+  .highlight-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(13,148,136,0.1); }
+  .stat { display: block; font-size: 2rem; font-weight: 800; color: var(--accent); margin-bottom: 0.3rem; }
+  .highlight-card h3 { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text); }
+  .highlight-card p { color: var(--muted); font-size: 0.82rem; line-height: 1.6; }
+
+  .center { text-align: center; }
+
+  .spotlight-card {
+    background: var(--surface);
+    border: 1.5px solid #ddd6fe;
+    border-radius: 16px;
+    padding: 2rem 2.25rem;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 2.5rem;
+    align-items: start;
+    box-shadow: 0 4px 20px rgba(124,58,237,0.06);
+  }
+  .spotlight-text .tag { margin-bottom: 0.75rem; display: inline-block; }
+  .spotlight-text h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--text); }
+  .spotlight-text p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+  .spotlight-meta { display: flex; flex-direction: column; gap: 1rem; }
+  .meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+  .meta-label { font-size: 0.68rem; font-weight: 700; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.08em; }
+  .meta-item span:last-child { font-size: 0.85rem; color: var(--text); font-weight: 500; }
+
+  @media (max-width: 700px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-badge-stack { flex-direction: row; flex-wrap: wrap; }
+    .badge-card { min-width: 0; flex: 1 1 150px; }
+    .spotlight-card { grid-template-columns: 1fr; }
+  }
+</style>

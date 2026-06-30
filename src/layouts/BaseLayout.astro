@@ -1,0 +1,132 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = "Nina Chatman", description = "Portfolio of Nina Chatman — PharmD Candidate, VCU School of Pharmacy" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/CatrinaPortfolio/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title} | Nina Chatman, PharmD</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav>
+      <a href="/CatrinaPortfolio/" class="nav-logo">NC</a>
+      <ul>
+        <li><a href="/CatrinaPortfolio/">Home</a></li>
+        <li><a href="/CatrinaPortfolio/experience">Experience</a></li>
+        <li><a href="/CatrinaPortfolio/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>© {new Date().getFullYear()} Nina Chatman · PharmD Candidate, VCU School of Pharmacy</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f0fdfa;
+    --surface: #ffffff;
+    --border: #99f6e4;
+    --text: #0f2a24;
+    --muted: #4b7a6e;
+    --accent: #0d9488;
+    --accent2: #7c3aed;
+    --accent-dim: #0d948812;
+    --accent2-dim: #7c3aed12;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    color-scheme: light;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(240, 253, 250, 0.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-logo {
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+
+  nav ul { display: flex; gap: 2rem; list-style: none; }
+
+  nav ul a {
+    color: var(--muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--accent); }
+
+  main { flex: 1; }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 99px;
+    padding: 0.2rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-purple {
+    background: var(--accent2-dim);
+    color: var(--accent2);
+    border-color: var(--accent2);
+  }
+</style>

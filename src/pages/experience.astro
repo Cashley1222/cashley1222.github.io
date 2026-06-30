@@ -1,0 +1,398 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const roles = [
+  {
+    org: "Johnston-Willis Hospital",
+    title: "Pharmacy Intern",
+    period: "May 2024 – Jun 2025",
+    bullets: [
+      "Processed medication orders accurately and safely compounded medications in acceptable dosage forms",
+      "Assisted in inventory maintenance and control using appropriate techniques for storage, preparation, and dispensing of medicinal agents",
+      "Followed health system policies regarding cart fill, unit-dose distribution, medication preparation and labeling, and controlled substance reconciliation",
+      "Ensured EMT boxes and medications for crash carts were stocked, checked, and ready to be dispensed",
+      "Manned front counter and Pyxis shifts utilizing Meditech, KitCheck, DoseEdge, McKesson, and BD Pyxis",
+      "Demonstrated teamwork to maximize operational efficiencies across a high-volume inpatient hospital environment",
+    ],
+  },
+  {
+    org: "Comanche County Memorial Hospital",
+    title: "Medical Technologist — Hematology & Chemistry",
+    period: "Jun 2021 – Jul 2023",
+    bullets: [
+      "Performed blood tests, studied morphology of blood constituents, and conducted coagulation tests to aid in diagnosis and treatment",
+      "Conducted high-complexity procedures for counting and identification of blood cells and specialized hematologic tests",
+      "Verified accuracy of findings, identified test inconsistencies, and took appropriate corrective action",
+      "Operated, cleaned, and maintained laboratory equipment used in blood analysis and procedures",
+      "Performed urinalysis studies and maintained laboratory documentation in accordance with quality control policies",
+      "Demonstrated the ability to be flexible, organized, and function effectively in high-pressure situations",
+    ],
+  },
+  {
+    org: "Comanche County Memorial Hospital",
+    title: "Laboratory Assistant",
+    period: "Dec 2019 – Jun 2021",
+    bullets: [
+      "Employed knowledge of test and specimen requirements to process, distribute, track, and manage specimens for send-out testing",
+      "Performed qualitative and quantitative analysis utilizing manual and automated instrumentation",
+      "Performed quality control procedures as needed to ensure accuracy and compliance",
+      "Operated and maintained all equipment correctly and safely at all times",
+    ],
+  },
+  {
+    org: "ARL Bio Pharma",
+    title: "Microbiology Intern",
+    period: "Jan 2020 – Jun 2020",
+    bullets: [
+      "Researched protocols and relevant criteria for validation of depyrogenation and recommended suitable vendors for a depyrogenation oven",
+      "Calculated ROI and presented findings to the executive board",
+      "Drafted, finalized, and executed validation protocol and created the Validation Report",
+      "Assisted with Endotoxin testing including client sample handling and pH/temperature measurements",
+    ],
+  },
+  {
+    org: "Loch Harbour Group",
+    title: "Instructor",
+    period: "Jun 2018 – Dec 2019",
+    bullets: [
+      "Taught technical aspects of advanced electronic equipment required to conduct 14H Air Defense Enhanced Early Warning Operator training",
+      "Evaluated students' performance and certified their competence in instructed skills",
+      "Performed analysis of training effectiveness and recommended revisions to technical and policy publications",
+    ],
+  },
+  {
+    org: "Regal",
+    title: "Associate Manager",
+    period: "Apr 2017 – Aug 2018",
+    bullets: [
+      "Managed 5+ employees at a time, ensuring secure and efficient daily operations",
+      "Enforced standards while interacting with employees and customers and maintained proper storage of inventory",
+    ],
+  },
+  {
+    org: "U.S. Army",
+    title: "Sergeant",
+    period: "Oct 2009 – Nov 2016",
+    bullets: [
+      "Managed and was accountable for equipment in excess of $5,000,000",
+      "Maintained personnel records and kept continuity between multiple databases",
+      "Scheduled tasks and volunteered time for special events and committees",
+      "Held others responsible for their actions and enforced standards",
+    ],
+  },
+  {
+    org: "Walgreens",
+    title: "Pharmacy Technician Extern (120-hour)",
+    period: "Feb 2013 – Aug 2013",
+    bullets: [
+      "Received written prescriptions to fill and re-fill medication orders accurately and efficiently",
+      "Communicated with patients effectively and referred them to the Pharmacist as appropriate",
+      "Conducted inventory and restocked medications in accordance with storage stability and security requirements",
+      "Ensured organization and cleanliness of shelves, Pyxis machines, and work environments",
+    ],
+  },
+];
+---
+
+<BaseLayout title="Experience" description="Nina Chatman's professional experience, clinical rotations, education, and certifications">
+  <div class="container">
+    <header class="page-header">
+      <h1>Experience</h1>
+      <p>A decade of clinical, laboratory, military, and pharmacy experience converging toward a career in clinical pharmacy.</p>
+    </header>
+
+    <div class="timeline">
+      {roles.map(({ org, title, period, bullets }) => (
+        <div class="role">
+          <div class="role-meta">
+            <span class="org">{org}</span>
+            <h2>{title}</h2>
+            <span class="period">{period}</span>
+          </div>
+          <ul class="bullets">
+            {bullets.map((b) => <li>{b}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <section class="section-block">
+      <h2 class="section-title">Clinical Rotations (IPPEs & APPEs)</h2>
+      <div class="rotation-grid">
+        {[
+          {
+            type: "IPPE — Community Pharmacy",
+            site: "Publix Pharmacy #1595 – Westpark",
+            preceptor: "Dr. Raj Patel, PharmD",
+            period: "Apr 29 – May 24, 2024",
+          },
+          {
+            type: "IPPE — Hospital Pharmacy",
+            site: "VCU Health System",
+            preceptor: "Dr. Angelia Walker, PharmD",
+            period: "Jun 2 – Jun 20, 2025",
+          },
+          {
+            type: "APPE — Patient Care",
+            site: "Richmond Health and Wellness Program",
+            preceptor: "Kathie Falls, NP · Natalie Mansion, MS · Krista Donohue, PharmD",
+            period: "Jul 9 – Jul 31, 2025",
+            note: "Church Hill House · Dominion Place · VCU Health Hub",
+          },
+        ].map(({ type, site, preceptor, period, note }) => (
+          <div class="rotation-card">
+            <span class="rotation-type">{type}</span>
+            <h3>{site}</h3>
+            {note && <p class="rotation-note">{note}</p>}
+            <p class="rotation-preceptor">Preceptor: {preceptor}</p>
+            <p class="rotation-period">{period}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Elective Coursework</h2>
+      <div class="course-list">
+        {[
+          { course: "Independent Research — Neuroscience Critical Care", period: "Fall 2025 – Present" },
+          { course: "Clinical Solid Organ Transplant and Immunology", period: "Fall 2025" },
+          { course: "Oncology Pharmacy in Practice", period: "Spring 2026" },
+          { course: "Residency and Fellowship Preparatory Course", period: "Spring 2026" },
+        ].map(({ course, period }) => (
+          <div class="course-item">
+            <span class="course-name">{course}</span>
+            <span class="course-period">{period}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Education</h2>
+      <div class="edu-grid">
+        {[
+          { degree: "Doctor of Pharmacy (PharmD)", field: "Expected May 2027", school: "Virginia Commonwealth University · Richmond, VA" },
+          { degree: "Bachelor of Science — Biotechnology", field: "May 2021", school: "University of Maryland Global Campus · Adelphi, MD" },
+          { degree: "Associate of General Studies", field: "May 2012", school: "Central Texas College · Killeen, TX" },
+          { degree: "Pharmacy Technician Program", field: "September 2013", school: "Boston Reed's / Temple College · Temple, TX" },
+        ].map(({ degree, field, school }) => (
+          <div class="edu-card">
+            <h3>{degree}</h3>
+            <p class="field">{field}</p>
+            <p class="school">{school}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Licenses & Certifications</h2>
+      <div class="cert-grid">
+        {[
+          { name: "Pharmacy Technician License", issuer: "Virginia Board of Pharmacy", date: "" },
+          { name: "ASCP Certified Medical Technologist (MT)", issuer: "American Society for Clinical Pathology", date: "" },
+        ].map(({ name, issuer, date }) => (
+          <div class="cert-card">
+            <h3>{name}</h3>
+            <p class="field">{issuer}</p>
+            {date && <p class="school">{date}</p>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section-block">
+      <h2 class="section-title">Leadership & Service</h2>
+      <div class="service-grid">
+        {[
+          {
+            role: "Student Ambassador",
+            org: "VCU School of Pharmacy",
+            period: "2024 – 2025",
+            details: [
+              "Interviewed PharmD applicants on-site and via Zoom and submitted evaluations",
+              "Led and co-led campus tours for prospective students on Interview Day",
+              "Served as panelist — welcomed students and shared the student perspective",
+            ],
+          },
+          {
+            role: "Pharmacy Student Champion",
+            org: "SNPhA — Be the Legacy Initiative",
+            period: "2025 – Present",
+            details: [
+              "Received Veloxis Organ Donation Challenge Project Grant ($125, Dec 2025)",
+              "Organized interprofessional panel featuring transplant surgeon, living donor, UNOS specialist, and transplant pharmacist",
+              "Developed pre/post assessments to measure learning outcomes and educational effectiveness",
+            ],
+          },
+        ].map(({ role, org, period, details }) => (
+          <div class="service-card">
+            <div class="service-header">
+              <div>
+                <span class="org-label">{org}</span>
+                <h3>{role}</h3>
+              </div>
+              <span class="period">{period}</span>
+            </div>
+            <ul class="bullets">
+              {details.map((d) => <li>{d}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .container { padding-top: 3rem; padding-bottom: 4rem; }
+
+  .page-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+  }
+  .page-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .page-header p { color: var(--muted); }
+
+  .timeline { display: flex; flex-direction: column; }
+
+  .role {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .role-meta { display: flex; flex-direction: column; gap: 0.3rem; }
+  .org { color: var(--accent); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .role-meta h2 { font-size: 0.95rem; font-weight: 700; line-height: 1.4; color: var(--text); }
+  .period { color: var(--muted); font-size: 0.8rem; }
+
+  .bullets { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .bullets li {
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.65;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .bullets li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .section-block {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border);
+  }
+  .section-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text); }
+
+  .rotation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .rotation-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .rotation-card:hover { border-color: var(--accent); }
+  .rotation-type {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-radius: 99px;
+    padding: 0.15rem 0.65rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .rotation-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; }
+  .rotation-note { color: var(--muted); font-size: 0.78rem; margin-bottom: 0.3rem; }
+  .rotation-preceptor { color: var(--muted); font-size: 0.8rem; margin-bottom: 0.15rem; }
+  .rotation-period { color: var(--accent); font-size: 0.78rem; font-weight: 600; }
+
+  .course-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .course-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0.9rem 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .course-item:hover { border-color: var(--accent); }
+  .course-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+  .course-period { font-size: 0.8rem; color: var(--accent); font-weight: 600; }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .edu-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .edu-card:hover { border-color: var(--accent); }
+  .edu-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text); }
+  .field { color: var(--accent); font-size: 0.8rem; font-weight: 600; margin-bottom: 0.2rem; }
+  .school { color: var(--muted); font-size: 0.78rem; }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .cert-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .cert-card:hover { border-color: var(--accent); }
+  .cert-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text); }
+
+  .service-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+  .service-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .service-card:hover { border-color: var(--accent); }
+  .service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  .org-label { color: var(--accent); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.2rem; }
+  .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+
+  @media (max-width: 640px) {
+    .role { grid-template-columns: 1fr; gap: 0.75rem; }
+    .course-item { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+    .service-header { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
