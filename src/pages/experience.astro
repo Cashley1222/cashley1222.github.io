@@ -70,14 +70,38 @@ const roles = [
     ],
   },
   {
-    org: "U.S. Army",
-    title: "Sergeant",
-    period: "Oct 2009 – Nov 2016",
+    org: "U.S. Army — Fort Hood, TX",
+    title: "Sergeant / Team Leader, Patriot Air Defense Artillery",
+    period: "Aug 2014 – Nov 2016",
     bullets: [
-      "Managed and was accountable for equipment in excess of $5,000,000",
-      "Maintained personnel records and kept continuity between multiple databases",
-      "Scheduled tasks and volunteered time for special events and committees",
+      "Served as Early Warning System Team Leader for a Patriot Air Defense Artillery Battalion, responsible for operation and supervision of C4I systems",
+      "Accountable for equipment in excess of $5,000,000 and led organizational maintenance of Air Defense Command systems",
+      "Established and led unit-level training for crew certification programs and Air Defense Operations",
+      "Certified for Patriot Gunnery Table — 69th ADA Brigade Mission Readiness Exercise (MRE)",
       "Held others responsible for their actions and enforced standards",
+    ],
+  },
+  {
+    org: "U.S. Army — Kuwait (OEF Deployment)",
+    title: "Early Warning Specialist / mIRC Operator",
+    period: "Aug 2014 – Aug 2015",
+    bullets: [
+      "Deployed in support of Operation Enduring Freedom — Kuwait; served as certified reports/mIRC operator for Tactical Command System (TCS)",
+      "Certified for TCS Table VIII, multiple Mission Readiness Exercises (MREs), and Crew Certification Verifications (CCVs)",
+      "Developed training plans to cross-train all crew members on each individual role to ensure full crew certification",
+      "Set the standard for training of the incoming unit during Relief in Place / Transfer of Authority (RIP/TOA)",
+    ],
+  },
+  {
+    org: "U.S. Army",
+    title: "14J/14H C4I Tactical Operations Center Operator/Maintainer",
+    period: "Jan 2010 – Aug 2014",
+    bullets: [
+      "Served and qualified as a Sentinel crew member in Echo 4-5 Air Missile Defense Composite Battalion",
+      "Scheduled over 200 Soldiers to attend respective schools as Training Specialist and assistant to the Schools NCOIC",
+      "Served as Digital Training Management System planner and conducted Sergeant's Time Training in support of S3 missions",
+      "Operated in the Orderly Room filing and updating records, trackers, and training documentation",
+      "Processed administrative actions for command",
     ],
   },
   {
@@ -243,6 +267,44 @@ const roles = [
       </div>
     </section>
 
+    <section class="section-block">
+      <h2 class="section-title">Military Accomplishments & Awards</h2>
+      <div class="award-grid">
+        <div class="award-card">
+          <h3>Academic Honors</h3>
+          <ul class="bullets">
+            <li>Warrior Leader Course — Commandant's List, Class 704-15</li>
+            <li>Distinguished Honor Graduate of Advanced Individual Training (AIT)</li>
+          </ul>
+        </div>
+        <div class="award-card">
+          <h3>Medals & Decorations</h3>
+          <ul class="medals-list">
+            {[
+              "Army Commendation Medal",
+              "Army Achievement Medal",
+              "Army Good Conduct Medal",
+              "National Defense Service Medal",
+              "Global War on Terrorism Service Medal",
+              "Military Outstanding Volunteer Service Medal",
+              "Army Service Ribbon",
+              "Outstanding Service Ribbon",
+            ].map((medal) => <li>{medal}</li>)}
+          </ul>
+        </div>
+        <div class="award-card">
+          <h3>Military Training & Certifications</h3>
+          <ul class="bullets">
+            <li>Tactical Command System & Battery Command Post CUI 4.0 (2016)</li>
+            <li>Multi-TDL Advanced Joint Interoperability Course (2015)</li>
+            <li>Link 16 Joint Interoperability Course (2015)</li>
+            <li>CPOF Operators Introductory Course (2014)</li>
+            <li>Link 16 Basics Course (2013)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
   </div>
 </BaseLayout>
 
@@ -389,6 +451,48 @@ const roles = [
   }
   .org-label { color: var(--accent); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.2rem; }
   .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+
+  .award-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .award-card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: border-color 0.2s;
+  }
+  .award-card:hover { border-color: var(--accent); }
+  .award-card h3 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+  .medals-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .medals-list li {
+    font-size: 0.85rem;
+    color: var(--text);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .medals-list li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    color: #d97706;
+    font-size: 0.65rem;
+    top: 0.15rem;
+  }
 
   @media (max-width: 640px) {
     .role { grid-template-columns: 1fr; gap: 0.75rem; }
