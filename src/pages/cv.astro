@@ -1,0 +1,325 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const cvPdf = "/Catrina-Chatman-CV.pdf";
+
+type Entry = { date: string; title: string; lines?: string[] };
+type Section = { heading: string; entries: Entry[] };
+
+const sections: Section[] = [
+  {
+    heading: "Education",
+    entries: [
+      { date: "May 2027", title: "Doctor of Pharmacy Candidate", lines: ["Virginia Commonwealth University (VCU) School of Pharmacy", "Richmond, Virginia"] },
+      { date: "May 2021", title: "Bachelor of Science – BS, Biotechnology", lines: ["University of Maryland Global Campus (UMGC)", "Adelphi, Maryland"] },
+      { date: "May 2012", title: "Associate of General Studies", lines: ["Central Texas College (CTC)", "Killeen, Texas"] },
+      { date: "Sep 2013", title: "Boston Reed Pharmacy Technician Program", lines: ["Temple College", "Temple, Texas"] },
+    ],
+  },
+  {
+    heading: "Professional Work Experience",
+    entries: [
+      { date: "May 2024 – Jun 2025", title: "Pharmacy Intern", lines: ["Amy Cuenin, PharmD", "Johnston-Willis Hospital; Richmond, Virginia"] },
+      { date: "Jun 2021 – Jul 2023", title: "Medical Technologist, Hematology and Chemistry", lines: ["Laura Samek", "Comanche County Memorial Hospital; Lawton, Oklahoma"] },
+      { date: "Jan 2020 – Jun 2020", title: "Microbiology Intern", lines: ["Vince Bobin", "ARL Bio Pharma; Oklahoma City, Oklahoma"] },
+      { date: "Dec 2019 – Jun 2021", title: "Laboratory Assistant", lines: ["Laura Samek", "Comanche County Memorial Hospital; Lawton, Oklahoma"] },
+      { date: "Jun 2018 – Dec 2019", title: "Instructor", lines: ["Timothy Hockenberry", "Loch Harbour Group; Lawton, Oklahoma"] },
+      { date: "Feb 2013 – Aug 2013", title: "Pharmacy Technician Extern", lines: ["Mike De Luna, PharmD", "Walgreens; Harker Heights, Texas"] },
+    ],
+  },
+  {
+    heading: "Advanced Pharmacy Practice Experiences (5 weeks each)",
+    entries: [
+      { date: "Mar 2027 – Apr 2027", title: "Clinical Selective: Stem Cell Transplant", lines: ["VCU Health System; Richmond, Virginia", "Preceptor: Rebekah Dyer, PharmD, BCPS"] },
+      { date: "Feb 2027 – Mar 2027", title: "Elective: Healthcare Management and/or Consulting", lines: ["Central Virginia VA Medical Center; Richmond, Virginia", "Preceptor: Samantha Schaller, PharmD"] },
+      { date: "Jan 2027 – Feb 2027", title: "Acute Care: Oncology (Hem/Onc &/or BMT)", lines: ["Central Virginia VA Medical Center; Richmond, Virginia", "Preceptor: Jinah Han, PharmD"] },
+      { date: "Nov 2026 – Dec 2026", title: "Acute Care: Solid Organ Transplant", lines: ["VCU Health System; Richmond, Virginia", "Preceptor: Ryan Marks, PharmD"] },
+      { date: "Oct 2026 – Nov 2026", title: "Advanced Hospital Pharmacy Practice", lines: ["Encompass Health Rehabilitation Hospital of Petersburg; Petersburg, Virginia", "Preceptor: Dickson Adofo, PharmD"] },
+      { date: "Aug 2026 – Oct 2026", title: "Ambulatory Care: Oncology (Hem/Onc &/or BMT)", lines: ["Bon Secours Cancer Institute at St. Francis; Midlothian, Virginia", "Preceptor: Anna Murillo, PharmD, BCOP, BCPS"] },
+      { date: "Jun 2026 – Jul 2026", title: "Elective: Pharmaceutical Industry", lines: ["Johnson & Johnson", "Preceptor: Xavier Hudson, PharmD"] },
+      { date: "May 2026 – Jun 2026", title: "Advanced Community Pharmacy Practice", lines: ["Richmond Apothecaries, Inc. (Bremo Pharmacy); Richmond, Virginia", "Preceptor: Tana Kaefer, PharmD"] },
+    ],
+  },
+  {
+    heading: "Introductory Pharmacy Practice Experiences (IPPE)",
+    entries: [
+      {
+        date: "Jul 2025",
+        title: "Richmond Health and Wellness Program (RHWP)",
+        lines: [
+          "Patient Care Service Learning (22 hours)",
+          "Church Hill House, Richmond, Virginia – July 9th",
+          "Preceptor: Kathie Falls, NP",
+          "VCU Health Hub, Richmond, Virginia – July 21st & 28th",
+          "Preceptor: Kathie Falls, NP",
+          "Dominion Place, Richmond, Virginia – July 31st",
+          "Preceptor: Krista Donohue, PharmD",
+        ],
+      },
+      { date: "Jun 2025", title: "Virginia Commonwealth University Health System", lines: ["Hospital Pharmacy (3 weeks)", "Richmond, Virginia", "Preceptor: Angelia Walker, PharmD"] },
+      { date: "Apr 2024", title: "Publix Pharmacy #1595", lines: ["Community Pharmacy IPPE (4 weeks)", "Westpark; Richmond, Virginia", "Preceptor: Raj Patel, PharmD"] },
+    ],
+  },
+  {
+    heading: "Research Experiences",
+    entries: [
+      {
+        date: "2025 – Present",
+        title: "Neuroscience Critical Care Research",
+        lines: [
+          "VCU School of Pharmacy; Richmond, Virginia",
+          "Dr. Gretchen Brophy, PharmD, BCPS, FCCP, FNCS, MCCM",
+          "Role: Independent research – Behavioral Adverse Events Associated with Antiseizure Medications in Brain Injured Patients",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "Leadership Experiences",
+    entries: [
+      {
+        date: "2025 – 2026",
+        title: "VCU Gayheart Leadership Development Program (GLDP)",
+        lines: [
+          "Virginia Commonwealth University School of Pharmacy",
+          "Engaged in collaborative coursework and reflective practice to build self-awareness, define my leadership philosophy, and drive positive community impact",
+        ],
+      },
+      {
+        date: "2025 – 2026",
+        title: "Scholarship Chair",
+        lines: ["Kappa Epsilon, Tau Chapter", "VCU School of Pharmacy", "Oversaw the scholastic obligations of active members and coordinated tutoring and study groups."],
+      },
+      {
+        date: "2024 – 2025",
+        title: "Student Ambassador",
+        lines: ["VCU School of Pharmacy", "Interviewed and evaluated applicants, led campus tours, and served as a panelist sharing student perspectives."],
+      },
+      {
+        date: "2009 – 2016",
+        title: "Sergeant",
+        lines: ["U.S. Army", "Managed personnel and equipment exceeding $5,000,000; maintained personnel records across multiple databases, scheduled tasks, and enforced standards."],
+      },
+    ],
+  },
+  {
+    heading: "Honors and Awards",
+    entries: [
+      {
+        date: "Oct 2025 – Jun 2026",
+        title: "Best Overall Project Award 2026, Organ Donation Awareness Challenge",
+        lines: [
+          "American Society of Transplantation",
+          "Transplant Pharmacy Community of Practice",
+          "Designed and executed the top-scoring national project in the 2025–2026 Organ Donation Challenge; recognized with a $500 educational grant, an institutional plaque, a featured presentation at the 2026 American Transplant Congress (ATC) in Boston, MA and $120 Veloxis® Organ Donation Awareness Grant) to advance local donation awareness and outreach",
+        ],
+      },
+      {
+        date: "Aug 2023 – Present",
+        title: "VCU School of Pharmacy Recruitment Scholarship",
+        lines: ["Competitive, merit-based scholarship awarded upon admission to candidates demonstrating academic excellence, prior professional achievement, and leadership potential."],
+      },
+    ],
+  },
+  {
+    heading: "Community Service Volunteer Experiences",
+    entries: [
+      { date: "Feb 2025", title: "Resilient Smile Project Service Day", lines: ["Ericka Crouse, PharmD", "American Association of Psychiatric Pharmacists, Student Chapter; Richmond, Virginia"] },
+      { date: "Sep 2024", title: "Remote Area Medical: Interprofessional Outreach", lines: ["Sydney Williams, MD. Candidate VCU School of Medicine", "Luray, Virginia"] },
+      { date: "Jun 2024", title: "Pharmacy Explorers – Middle Schoolers Laboratory Training", lines: ["Abigale Matulewicz, Pharm.D.", "VCU School of Pharmacy; Richmond, Virginia"] },
+      { date: "Sep 2023", title: "Teach Blood Pressure Monitoring", lines: ["Cheryl Rocha and Sangeeta Shah, MD.", "Patrick Copeland Elementary School"] },
+    ],
+  },
+  {
+    heading: "Professional Organization Membership",
+    entries: [
+      {
+        date: "2024 – Present",
+        title: "American Society of Health-System Pharmacists (ASHP)",
+        lines: [
+          "Virginia Society of Health-System Pharmacists (VSHP)",
+          "Student Chapter of the VSHP",
+          "Neurocritical Care Society",
+          "Kappa Epsilon, Tau Chapter, VCU School of Pharmacy",
+        ],
+      },
+    ],
+  },
+  {
+    heading: "Licensure and Certifications",
+    entries: [
+      { date: "Apr 2026 – Present", title: "Gayheart Leadership Development Program", lines: ["VCU School of Pharmacy & Office of Student Engagement"] },
+      { date: "Sep 2025 – Sep 2027", title: "Basic Life Support Provider, CPR and AED (265416024587)", lines: ["American Heart Association"] },
+      { date: "Oct 2023 – Dec 2027", title: "Pharmacy Intern (0203021387)", lines: ["Virginia Department of Health Professions"] },
+      { date: "Oct 2024 – Oct 2027", title: "Pharmacy-Based Test and Treat Certificate of Achievement", lines: ["American Pharmacists Association & University of Florida College of Pharmacy"] },
+      { date: "Sep 2024 – Present", title: "Pharmacy-Based Immunization Delivery Certificate of Achievement", lines: ["American Pharmacists Association (APhA)"] },
+      { date: "Aug 2023 – Aug 2026", title: "Technologist in Chemistry, ASCP-C (5960)", lines: ["ASCP Board of Certification"] },
+      { date: "Aug 2021 – Aug 2027", title: "Technologist in Hematology, ASCP-H (4012)", lines: ["ASCP Board of Certification"] },
+    ],
+  },
+];
+
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+---
+
+<BaseLayout title="CV" description="Curriculum vitae of Catrina (Nina) Chatman — PharmD Candidate, VCU School of Pharmacy">
+  <div class="container">
+    <header class="page-header">
+      <div class="header-text">
+        <h1>Curriculum Vitae</h1>
+        <p class="cv-name">Catrina Ashley Chatman</p>
+        <p class="cv-contact">
+          <a href="tel:+12543839579">254-383-9579</a> · <a href="mailto:Cashley1222@gmail.com">Cashley1222@gmail.com</a> · Disputanta, Virginia 23842
+        </p>
+      </div>
+      <div class="header-actions">
+        <a class="btn btn-primary" href={cvPdf} download="Catrina-Chatman-CV.pdf">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download PDF
+        </a>
+        <a class="btn btn-ghost" href={cvPdf} target="_blank" rel="noopener">Open PDF</a>
+      </div>
+    </header>
+
+    <div class="cv-jump" role="navigation" aria-label="CV sections">
+      {sections.map(({ heading }) => (
+        <a href={`#${slug(heading)}`}>{heading.replace(/ \(.*\)$/, "")}</a>
+      ))}
+    </div>
+
+    <article class="cv">
+      {sections.map(({ heading, entries }) => (
+        <section id={slug(heading)} class="cv-section">
+          <h2>{heading}</h2>
+          <div class="entries">
+            {entries.map(({ date, title, lines }) => (
+              <div class="entry">
+                <div class="entry-date">{date}</div>
+                <div class="entry-body">
+                  <h3>{title}</h3>
+                  {lines?.map((l) => <p>{l}</p>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+    </article>
+
+    <div class="cv-footer-cta">
+      <p>Prefer a printable copy?</p>
+      <a class="btn btn-primary" href={cvPdf} download="Catrina-Chatman-CV.pdf">Download CV (PDF)</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .container { padding-top: 3rem; padding-bottom: 4rem; }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2rem;
+  }
+  .page-header h1 { font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .cv-name { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.25rem; }
+  .cv-contact { color: var(--muted); font-size: 0.9rem; }
+  .cv-contact a:hover { color: var(--accent); }
+
+  .header-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 10px;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: var(--accent); color: #fff; border: 1.5px solid var(--accent); }
+  .btn-primary:hover { background: #0f766e; border-color: #0f766e; }
+  .btn-ghost { background: var(--surface); color: var(--accent); border: 1.5px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--accent); }
+
+  .cv-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .cv-jump a {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 0.3rem 0.8rem;
+    transition: all 0.2s;
+  }
+  .cv-jump a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .cv {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem 2.25rem;
+  }
+
+  .cv-section { scroll-margin-top: 5rem; }
+  .cv-section + .cv-section { margin-top: 2.25rem; }
+
+  .cv-section h2 {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-left: 3px solid var(--accent);
+    padding: 0.45rem 0.75rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 1.1rem;
+  }
+
+  .entries { display: flex; flex-direction: column; gap: 1.1rem; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 1.25rem;
+  }
+  .entry-date {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding-top: 0.1rem;
+  }
+  .entry-body h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; line-height: 1.4; }
+  .entry-body p { color: var(--muted); font-size: 0.87rem; line-height: 1.6; }
+
+  .cv-footer-cta {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: var(--muted);
+  }
+
+  @media (max-width: 640px) {
+    .cv { padding: 1.25rem; }
+    .entry { grid-template-columns: 1fr; gap: 0.2rem; }
+    .entry-date { font-size: 0.78rem; }
+    .cv-jump { flex-wrap: nowrap; overflow-x: auto; margin-left: -2rem; margin-right: -2rem; padding: 0 2rem 0.25rem; scrollbar-width: none; }
+    .cv-jump a { white-space: nowrap; }
+  }
+</style>
