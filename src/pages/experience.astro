@@ -320,13 +320,14 @@ const roles = [
     <section class="section-block">
       <h2 class="section-title">Honors & Awards</h2>
       <div class="award-highlight">
-        <div class="award-highlight-card">
+        <a class="award-highlight-card award-highlight-card--link" href="https://pharmacy.vcu.edu/news/newsroom/pharmacy-news/pharmd-student-nina-chatman-earns-national-recognition-for-community-engagement-around-organ-donation.html" target="_blank" rel="noopener noreferrer">
           <span class="award-icon">🏆</span>
           <div>
             <h3>Best Overall Project Award — Organ Donation Challenge</h3>
             <p>AST Transplant Pharmacy Community of Practice · June 2026</p>
+            <span class="award-cta">Read the VCU story →</span>
           </div>
-        </div>
+        </a>
         <div class="award-highlight-card">
           <span class="award-icon">💰</span>
           <div>
@@ -628,4 +629,7 @@ const roles = [
     .course-item { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
     .service-header { flex-direction: column; gap: 0.5rem; }
   }
+  .award-highlight-card--link { cursor: pointer; transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s; }
+  .award-highlight-card--link:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(13,148,136,0.1); }
+  .award-cta { display: inline-block; margin-top: 0.4rem; font-size: 0.8rem; font-weight: 700; color: var(--accent); }
 </style>
