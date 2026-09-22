@@ -25,6 +25,7 @@ const { title = "Nina Chatman", description = "Portfolio of Nina Chatman — Pha
         <li><a href="/">Home</a></li>
         <li><a href="/experience">Experience</a></li>
         <li><a href="/presentations">Presentations</a></li>
+        <li><a href="/cv">CV</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
@@ -95,6 +96,12 @@ const { title = "Nina Chatman", description = "Portfolio of Nina Chatman — Pha
     transition: color 0.2s;
   }
   nav ul a:hover { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    nav { padding: 0.85rem 1rem; gap: 1rem; }
+    nav ul { gap: 0.9rem; flex-wrap: wrap; justify-content: flex-end; row-gap: 0.35rem; }
+    nav ul a { font-size: 0.8rem; }
+  }
 
   main { flex: 1; }
 
