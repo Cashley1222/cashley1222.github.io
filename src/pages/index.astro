@@ -356,7 +356,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   @media (max-width: 700px) {
     .hero-inner { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
+    .hero { padding: 2.5rem 0 3rem; }
+    .hero-inner { gap: 1.75rem; }
+    .hero-right { order: -1; }
+    .hero-photo img { width: 150px; height: 150px; }
+    .hero-badge-stack { display: none; }
     .spotlight-card { grid-template-columns: 1fr; }
   }
 </style>
